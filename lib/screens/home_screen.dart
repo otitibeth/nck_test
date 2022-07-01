@@ -9,17 +9,20 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Stack(
-          children: const [
-            HomeContainer(),
+          // alignment: Alignment.lerp(a, b, t),
+          children: [
+            const HomeContainer(),
             Positioned(
-                top: 105,
-                bottom: 380,
+                top: h * 0.15,
+                // bottom: h * 100,
                 left: 0,
                 right: 0,
-                child: CylinderContainer()),
+                child: const CylinderContainer()),
           ],
         ),
       ),
@@ -66,6 +69,8 @@ class CylinderContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 30,
@@ -73,7 +78,7 @@ class CylinderContainer extends StatelessWidget {
       child: Container(
         // alignment: Alignment.center,
         width: double.infinity,
-        height: 160,
+        height: h * 0.3,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(19),
           color: const Color.fromARGB(255, 252, 204, 48),

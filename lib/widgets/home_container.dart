@@ -103,24 +103,27 @@ class HomeContainer extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        subContainer(
-                          text: 'Add Cylinder',
-                          onPressed: () {},
-                        ),
-                        const Spacer(),
-                        subContainer(
-                          text: 'Top Up',
-                          onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed(TopupScreen.routeName);
-                          },
-                        ),
-                      ],
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          subContainer(
+                            text: 'Add Cylinder',
+                            onPressed: () {},
+                          ),
+                          const Spacer(),
+                          subContainer(
+                            text: 'Top Up',
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushNamed(TopupScreen.routeName);
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 17),
