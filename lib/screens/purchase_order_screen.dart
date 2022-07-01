@@ -114,7 +114,6 @@ class _PurchaseOrderScreenState extends State<PurchaseOrderScreen> {
             child: Column(
               children: [
                 ListView(
-                  // physics: ScrollPhysics(),
                   shrinkWrap: true,
                   // mainAxisSize: MainAxisSize.min,
 
