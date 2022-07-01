@@ -112,12 +112,12 @@ class _PurchaseOrderScreenState extends State<PurchaseOrderScreen> {
           child: Container(
             alignment: Alignment.centerLeft,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ListView(
                   // physics: ScrollPhysics(),
                   shrinkWrap: true,
                   // mainAxisSize: MainAxisSize.min,
+
                   // crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     AppBarWidget(
