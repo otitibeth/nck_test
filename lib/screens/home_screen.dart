@@ -18,8 +18,8 @@ class HomeScreen extends StatelessWidget {
           children: [
             const HomeContainer(),
             Positioned(
-                top: h * 0.15,
-                // bottom: h * 100,
+                top: h * 0.127,
+                // bottom: h * 0.8,
                 left: 0,
                 right: 0,
                 child: const CylinderContainer()),
@@ -83,10 +83,8 @@ class CylinderContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(19),
           color: const Color.fromARGB(255, 252, 204, 48),
         ),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 30,
-          vertical: 17,
-        ),
+        padding:
+            EdgeInsets.only(left: w * 0.06, right: w * 0.03, top: h * 0.02),
         child: Row(
           children: [
             Column(
@@ -94,8 +92,8 @@ class CylinderContainer extends StatelessWidget {
               children: [
                 Container(
                   alignment: Alignment.center,
-                  width: 80,
-                  height: 25,
+                  width: w * 0.2,
+                  height: h * 0.025,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     color: Colors.yellow.shade200,
@@ -107,19 +105,19 @@ class CylinderContainer extends StatelessWidget {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+                      EdgeInsets.symmetric(vertical: 0, horizontal: w * 0.01),
                   child: Row(
-                    children: const [
+                    children: [
                       Text(
                         '25',
                         style: TextStyle(
                           color: whiteColor,
                           fontWeight: FontWeight.w700,
-                          fontSize: 90,
+                          fontSize: h * 0.13,
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 45),
+                        padding: EdgeInsets.only(top: h * 0.08),
                         child: Text(
                           'Kg',
                           style: TextStyle(
@@ -134,8 +132,8 @@ class CylinderContainer extends StatelessWidget {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  width: 140,
-                  height: 25,
+                  width: w * 0.36,
+                  height: h * 0.03,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     color: Colors.yellow.shade200,
@@ -150,8 +148,8 @@ class CylinderContainer extends StatelessWidget {
             ),
             const Spacer(),
             Container(
-              width: 100,
-              height: 200,
+              width: w * 0.28,
+              height: h * 0.28,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(19),
                 // color: Colors.white,

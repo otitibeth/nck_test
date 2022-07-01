@@ -199,12 +199,14 @@ class subContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: onPressed,
       child: Container(
         alignment: Alignment.center,
-        width: 163,
-        height: 49,
+        width: w * 0.4,
+        height: h * 0.075,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Theme.of(context).primaryColor,
@@ -230,9 +232,11 @@ class ListContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
     return Container(
       width: double.infinity,
-      height: 67,
+      height: h * 0.09,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: Row(
@@ -244,8 +248,8 @@ class ListContainer extends StatelessWidget {
               ),
               child: Image.asset(
                 asset,
-                height: 37,
-                width: 37,
+                height: h * 0.05,
+                width: h * 0.055,
                 fit: BoxFit.cover,
               ),
             ),
@@ -262,8 +266,8 @@ class ListContainer extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
+                SizedBox(
+                  height: h * 0.003,
                 ),
                 const Text(
                   '17 August 2021',

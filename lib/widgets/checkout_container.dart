@@ -17,18 +17,21 @@ class CheckoutContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(top: 12),
       child: Container(
         width: double.infinity,
-        height: 80,
+        height: h * 0.11,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Colors.grey.shade200,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15)
-              .copyWith(right: 10),
+          padding:
+              EdgeInsets.symmetric(horizontal: w * 0.03, vertical: h * 0.014)
+                  .copyWith(right: w * 0.03),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [

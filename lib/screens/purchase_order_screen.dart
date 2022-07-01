@@ -111,80 +111,85 @@ class _PurchaseOrderScreenState extends State<PurchaseOrderScreen> {
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
           child: Container(
             alignment: Alignment.centerLeft,
-            child: ListView(
-              // physics: ScrollPhysics(),
-              shrinkWrap: true,
-              // mainAxisSize: MainAxisSize.min,
-              // crossAxisAlignment: CrossAxisAlignment.start,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                AppBarWidget(
-                  title: 'Purchase Order',
-                  text: 'Select your order preference',
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                orders.isNotEmpty
-                    ? DropDownContainer(
-                        handleShowAdded: handleShowAdded,
-                        orders: orders,
-                      )
-                    : Container(),
-                const SizedBox(
-                  height: 14,
-                ),
-                PurchaseContaine1(
-                  orders: orders,
-                  // index: index,
-                  handleSwapCylinder: handleSwapCylinder,
-                ),
-                showadded
-                    ? ConstrainedBox(
-                        constraints: BoxConstraints(maxHeight: 1000),
-                        child: ListView.builder(
-                          controller: _scrollController,
-
-                          // physics: ScrollPhysics(),
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) => PurchaseContaine(
-                            index: index,
-                            orders: orders,
-                            handleSwapCylinder: handleSwapCylinder,
-                          ),
-                          itemCount: orders.length,
-                        ),
-                      )
-                    : Container(),
-
-                // ...widgets,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                ListView(
+                  // physics: ScrollPhysics(),
+                  shrinkWrap: true,
+                  // mainAxisSize: MainAxisSize.min,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextButton.icon(
+                    AppBarWidget(
+                      title: 'Purchase Order',
+                      text: 'Select your order preference',
                       onPressed: () {
-                        onAddOrder();
-                        print(saveOrder());
-                        setState(() {});
+                        Navigator.of(context).pop();
                       },
-                      icon: const Icon(Icons.add, size: 17),
-                      label: const Text('Add order'),
                     ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    orders.isNotEmpty
+                        ? DropDownContainer(
+                            handleShowAdded: handleShowAdded,
+                            orders: orders,
+                          )
+                        : Container(),
+                    const SizedBox(
+                      height: 14,
+                    ),
+                    PurchaseContaine1(
+                      orders: orders,
+                      // index: index,
+                      handleSwapCylinder: handleSwapCylinder,
+                    ),
+                    showadded
+                        ? ConstrainedBox(
+                            constraints: BoxConstraints(maxHeight: 1000),
+                            child: ListView.builder(
+                              controller: _scrollController,
+
+                              // physics: ScrollPhysics(),
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) => PurchaseContaine(
+                                index: index,
+                                orders: orders,
+                                handleSwapCylinder: handleSwapCylinder,
+                              ),
+                              itemCount: orders.length,
+                            ),
+                          )
+                        : Container(),
+
+                    // ...widgets,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        TextButton.icon(
+                          onPressed: () {
+                            onAddOrder();
+                            print(saveOrder());
+                            setState(() {});
+                          },
+                          icon: const Icon(Icons.add, size: 17),
+                          label: const Text('Add order'),
+                        ),
+                      ],
+                    ),
+
+                    // const Spacer(),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    NextContainer(
+                        text: 'Continue',
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushNamed(DeliveryDetailsScreen.routeName);
+                        }),
                   ],
                 ),
-
-                // const Spacer(),
-                const SizedBox(
-                  height: 30,
-                ),
-                NextContainer(
-                    text: 'Continue',
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushNamed(DeliveryDetailsScreen.routeName);
-                    }),
               ],
             ),
           ),

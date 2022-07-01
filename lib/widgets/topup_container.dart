@@ -14,6 +14,8 @@ class TopupContainer extends StatelessWidget {
   final Color color;
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushNamed(PurchaseOrderScreen.routeName);
@@ -28,8 +30,10 @@ class TopupContainer extends StatelessWidget {
             color: color,
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15)
-                .copyWith(right: 10),
+            padding: EdgeInsets.symmetric(
+              horizontal: w * 0.05,
+              // vertical: 15
+            ).copyWith(right: w * 0.02),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -44,7 +48,8 @@ class TopupContainer extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(width: 30),
+                // Spacer(),
+                SizedBox(width: h * 0.045),
                 Text(
                   text,
                   style: const TextStyle(
