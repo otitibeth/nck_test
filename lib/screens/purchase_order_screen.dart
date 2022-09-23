@@ -105,90 +105,86 @@ class _PurchaseOrderScreenState extends State<PurchaseOrderScreen> {
   final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
           child: Container(
-            alignment: Alignment.centerLeft,
-            child: Column(
+            alignment: Alignment.topLeft,
+            child: ListView(
+              shrinkWrap: true,
+              // mainAxisSize: MainAxisSize.min,
+
+              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ListView(
-                  shrinkWrap: true,
-                  // mainAxisSize: MainAxisSize.min,
+                AppBarWidget(
+                  title: 'Purchase Order',
+                  text: 'Select your order preference',
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                orders.isNotEmpty
+                    ? DropDownContainer(
+                        handleShowAdded: handleShowAdded,
+                        orders: orders,
+                      )
+                    : Container(),
+                const SizedBox(
+                  height: 14,
+                ),
+                PurchaseContaine1(
+                  orders: orders,
+                  // index: index,
+                  handleSwapCylinder: handleSwapCylinder,
+                ),
+                showadded
+                    ? ConstrainedBox(
+                        constraints: BoxConstraints(maxHeight: 1000),
+                        child: ListView.builder(
+                          controller: _scrollController,
 
-                  // crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AppBarWidget(
-                      title: 'Purchase Order',
-                      text: 'Select your order preference',
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    orders.isNotEmpty
-                        ? DropDownContainer(
-                            handleShowAdded: handleShowAdded,
+                          // physics: ScrollPhysics(),
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) => PurchaseContaine(
+                            index: index,
                             orders: orders,
-                          )
-                        : Container(),
-                    const SizedBox(
-                      height: 14,
-                    ),
-                    PurchaseContaine1(
-                      orders: orders,
-                      // index: index,
-                      handleSwapCylinder: handleSwapCylinder,
-                    ),
-                    showadded
-                        ? ConstrainedBox(
-                            constraints: BoxConstraints(maxHeight: 1000),
-                            child: ListView.builder(
-                              controller: _scrollController,
-
-                              // physics: ScrollPhysics(),
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) => PurchaseContaine(
-                                index: index,
-                                orders: orders,
-                                handleSwapCylinder: handleSwapCylinder,
-                              ),
-                              itemCount: orders.length,
-                            ),
-                          )
-                        : Container(),
-
-                    // ...widgets,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextButton.icon(
-                          onPressed: () {
-                            onAddOrder();
-                            print(saveOrder());
-                            setState(() {});
-                          },
-                          icon: const Icon(Icons.add, size: 17),
-                          label: const Text('Add order'),
+                            handleSwapCylinder: handleSwapCylinder,
+                          ),
+                          itemCount: orders.length,
                         ),
-                      ],
-                    ),
+                      )
+                    : Container(),
 
-                    // const Spacer(),
-                    const SizedBox(
-                      height: 30,
+                // ...widgets,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    TextButton.icon(
+                      onPressed: () {
+                        onAddOrder();
+                        print(saveOrder());
+                        setState(() {});
+                      },
+                      icon: const Icon(Icons.add, size: 17),
+                      label: const Text('Add order'),
                     ),
-                    NextContainer(
-                        text: 'Continue',
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushNamed(DeliveryDetailsScreen.routeName);
-                        }),
                   ],
                 ),
+
+                // const Spacer(),
+                const SizedBox(
+                  height: 30,
+                ),
+                NextContainer(
+                    text: 'Continue',
+                    onPressed: () {
+                      Navigator.of(context)
+                          .pushNamed(DeliveryDetailsScreen.routeName);
+                    }),
               ],
             ),
           ),
