@@ -105,18 +105,22 @@ class _PurchaseOrderScreenState extends State<PurchaseOrderScreen> {
   final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
           child: Container(
-            alignment: Alignment.topLeft,
-            child: ListView(
-              shrinkWrap: true,
-              // mainAxisSize: MainAxisSize.min,
+            alignment: Alignment.centerLeft,
+            child: Column(
+              children: [
+                ListView(
+                  // physics: ScrollPhysics(),
+                  shrinkWrap: true,
+                  // mainAxisSize: MainAxisSize.min,
 
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+<<<<<<< HEAD
                 AppBarWidget(
                   title: 'Purchase Order',
                   text: 'Select your order preference',
@@ -146,6 +150,11 @@ class _PurchaseOrderScreenState extends State<PurchaseOrderScreen> {
                         constraints: BoxConstraints(maxHeight: 1000),
                         child: ListView.builder(
                           controller: _scrollController,
+=======
+                ListView(
+                  shrinkWrap: true,
+                  // mainAxisSize: MainAxisSize.min,
+>>>>>>> ac3675a51b36c981a07b6a7e1e8d6dd58c6dd644
 
                           // physics: ScrollPhysics(),
                           shrinkWrap: true,
